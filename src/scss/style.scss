@@ -204,6 +204,7 @@ $maxWidthContainer: 1280;
     margin-bottom: 70px;
     font-size: 20px;
     position: relative;
+
     &__label {
         position: absolute;
         background: #a18a68;
@@ -232,6 +233,17 @@ $maxWidthContainer: 1280;
         position: relative;
         margin-bottom: 24px;
         aspect-ratio: 1/1;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(2px);
+            border-radius: 8px;
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
     }
     &__actions {
         position: absolute;
@@ -1539,6 +1551,9 @@ input[type="number"]::-webkit-outer-spin-button {
     }
     .product-card:hover {
         .product-card__actions {
+            opacity: 1;
+        }
+        .product-card__box::before {
             opacity: 1;
         }
     }
